@@ -10,14 +10,24 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         backgroundColor: Colors.red,
         title: const Text('Dynamic Item'),
         centerTitle: true,
       ),
-      body: Padding(
+      body:
+      Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+
+            Container(
+              child: Image.asset('assets/pp.jpg'),
+              width: 300,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
             TextField(
               controller: controller.nameTextEditingController,
               decoration: const InputDecoration(
@@ -42,6 +52,9 @@ class HomeView extends GetView<HomeController> {
                     controller.addressTextEditingController.text);
               },
               child: const Text(" + Add "),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+              ),
             ),
             Expanded(
               child: Obx(() => ListView.builder(
@@ -67,6 +80,7 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
+      // ),
     );
   }
 }
